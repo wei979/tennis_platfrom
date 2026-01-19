@@ -1,0 +1,26 @@
+# Smart Tennis backend requirements
+# Python >= 3.10 is recommended
+
+Flask>=2.3.3,<3.0
+Flask-Cors==4.0.0
+Werkzeug>=2.3.7,<3.0
+
+# Core ML/vision stack
+ultralytics>=8.3.0
+opencv-python>=4.10.0
+numpy>=2.0.0
+scipy>=1.16.0
+Pillow>=10.0.0
+
+# Torch (CPU by default). If you need CUDA, install the appropriate wheel from pytorch.org
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Video transcoding to ensure browser playback of processed videos
+imageio-ffmpeg>=0.5.1
+
+# Utilities used by test scripts
+requests>=2.31.0
+
+# Optional: enable pose-based shot detection (not required for simplified mode)
+# mediapipe==0.10.5
