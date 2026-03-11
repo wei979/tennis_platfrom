@@ -56,8 +56,7 @@ Tennis_detect_project/
 │       └── videopose/gt/pretrain/
 │
 ├── main/
-│   ├── model/                       # 自訂模型（需另外下載）
-│   │   ├── last.pt                  #   自訂網球偵測模型
+│   ├── model/                       # 額外模型（需另外下載）
 │   │   ├── keypoints.pth            #   球場關鍵點模型
 │   │   └── readme.md                #   下載說明
 │   │
@@ -153,27 +152,18 @@ Tennis_detect_project/
 ### 已包含於 Repo
 | 模型 | 路徑 | 用途 |
 |------|------|------|
-| YOLOv8 Nano | `main/models/yolov8n.pt` | 通用物件偵測 |
-| Tennis Ball | `main/models/tennis_ball/best.pt` | 網球偵測微調模型 |
+| Tennis Ball (best) | `main/models/tennis_ball/best.pt` | **主要網球偵測模型**（後端預設使用） |
+| YOLOv8 Nano | `main/models/yolov8n.pt` | 通用物件偵測（fallback） |
 | 3D Pose 權重 | `checkpoint/` | VideoPose3D / GCN / MLP / ST-GCN 預訓練權重 |
 
 ### 需另外下載
 | 模型 | 放置路徑 | 下載方式 |
 |------|----------|----------|
-| 自訂網球偵測 | `main/model/last.pt` | [Google Drive](https://drive.google.com/file/d/1MTtgjH7V-WCOIt9S8zdjjNWtXHOIscv0/view?usp=drive_link) |
-| 球場關鍵點 | `main/model/keypoints.pth` | 同上 |
+| 球場關鍵點 | `main/model/keypoints.pth` | [Google Drive](https://drive.google.com/file/d/1MTtgjH7V-WCOIt9S8zdjjNWtXHOIscv0/view?usp=drive_link) |
 | YOLO11 Pose Large | `main/smart-tennis/backend/yolo11l-pose.pt` | Ultralytics 自動下載或手動放置 |
 | MediaPipe 手部 | `main/smart-tennis/backend/hand_landmarker.task` | MediaPipe 自動下載 |
 
-設定方式（Windows PowerShell）：
-- 使用提供的批次檔（已內建環境變數）：
-  - `main\smart-tennis\start_backend.bat`
-  - `main\smart-tennis\start_project.bat`
-- 或手動設定環境變數後啟動後端：
-  ```powershell
-  $env:YOLO_MODEL_PATH = "main\model\last.pt"
-  python main\smart-tennis\backend\app.py
-  ```
+後端啟動時會自動載入 `models/tennis_ball/best.pt`，無需額外設定環境變數。
 
 ---
 
@@ -228,7 +218,6 @@ npm install
 ```powershell
 cd main\smart-tennis
 .\.venv\Scripts\Activate.ps1
-# 可選：$env:YOLO_MODEL_PATH = "main\model\last.pt"
 python backend\app.py
 ```
 - 前端（終端 2）：

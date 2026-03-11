@@ -27,11 +27,11 @@ class TennisTracker:
         初始化網球追蹤器
 
         Args:
-            model_path: 網球檢測模型路徑 (已棄用，改用專用網球模型)
+            model_path: 網球檢測模型路徑 (預設使用 models/tennis_ball/best.pt)
             use_pose: 是否在輸出影片中繪製姿態骨架
             pose_model_size: 姿態模型大小 ('n', 's', 'm', 'l', 'x')
         """
-        # 優先使用自訓練的網球偵測模型
+        # 使用自訓練的網球偵測模型 (best.pt)
         tennis_ball_model = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
             'models', 'tennis_ball', 'best.pt'
@@ -42,9 +42,8 @@ class TennisTracker:
             print(f"使用自訓練網球模型: {tennis_ball_model}")
         else:
             # Fallback 到通用模型
-            if model_path is None:
-                model_path = os.getenv('YOLO_MODEL_PATH', '../models/yolov8n.pt')
-            self.model_path = model_path
+            fallback = model_path or '../models/yolov8n.pt'
+            self.model_path = fallback
             self.use_custom_model = False
             print(f"使用通用 YOLO 模型: {self.model_path}")
 

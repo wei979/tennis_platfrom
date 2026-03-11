@@ -134,10 +134,8 @@ POSE_MODEL_SIZE = os.getenv('POSE_MODEL_SIZE', 'l')  # 'n', 's', 'm', 'l', 'x'
 
 # 初始化分析器
 try:
-    # ❗ 提醒: 檢查您的環境變數 YOLO_MODEL_PATH 是否已設定
     print(f"📊 姿態辨識設定: USE_POSE={USE_POSE}, POSE_MODEL_SIZE={POSE_MODEL_SIZE}")
     tennis_tracker = TennisTracker(
-        model_path=os.getenv('YOLO_MODEL_PATH', None),
         use_pose=USE_POSE,
         pose_model_size=POSE_MODEL_SIZE
     )
