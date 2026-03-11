@@ -33,6 +33,30 @@ const Navbar: React.FC = () => {
             >
               上傳影片
             </Link>
+            <Link
+              to="/analysis-3d"
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                isActive('/analysis-3d') ? 'bg-blue-700' : 'hover:bg-blue-500'
+              }`}
+            >
+              3D 分析
+            </Link>
+            <Link
+              to="/poseaug"
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                isActive('/poseaug') ? 'bg-blue-700' : 'hover:bg-blue-500'
+              }`}
+            >
+              PoseAug
+            </Link>
+            <Link
+              to="/dashboard"
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                isActive('/dashboard') ? 'bg-blue-700' : 'hover:bg-blue-500'
+              }`}
+            >
+              儀表板
+            </Link>
           </div>
         </div>
       </div>

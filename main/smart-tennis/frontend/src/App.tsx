@@ -10,6 +10,8 @@ import ResultsPage from './pages/ResultsPage';
 import MultiUploadPage from './pages/MultiUploadPage';
 import MultiResultsPage from './pages/MultiResultsPage'; 
 import PlayerDashboardPage from './pages/PlayerDashboardPage'; // 修正後的匯入
+import Analysis3DPage from './pages/Analysis3DPage'; // 3D 姿態分析頁面
+import PoseAugPage from './pages/PoseAugPage'; // PoseAug 姿態增強測試頁面
 import './App.css';
 
 function App() {
@@ -24,7 +26,13 @@ function App() {
             <Route path="/multiupload" element={<MultiUploadPage />} />
             
             {/* 🌟 新增：球員數據儀表板路由 🌟 */}
-            <Route path="/dashboard" element={<PlayerDashboardPage />} /> 
+            <Route path="/dashboard" element={<PlayerDashboardPage />} />
+
+            {/* 🎯 3D 姿態分析路由 */}
+            <Route path="/analysis-3d" element={<Analysis3DPage />} />
+
+            {/* 🧪 PoseAug 姿態增強測試路由 */}
+            <Route path="/poseaug" element={<PoseAugPage />} /> 
 
             {/* 舊的單檔案分析/結果路由 */}
             <Route path="/analysis/:fileId" element={<AnalysisPage />} />
