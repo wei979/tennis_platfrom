@@ -56,10 +56,6 @@ Tennis_detect_project/
 │       └── videopose/gt/pretrain/
 │
 ├── main/
-│   ├── model/                       # 額外模型（需另外下載）
-│   │   ├── keypoints.pth            #   球場關鍵點模型
-│   │   └── readme.md                #   下載說明
-│   │
 │   ├── models/                      # 內建模型（已含於 repo）
 │   │   ├── yolov8n.pt               #   YOLOv8 Nano
 │   │   └── tennis_ball/best.pt      #   網球偵測微調模型
@@ -159,7 +155,6 @@ Tennis_detect_project/
 ### 需另外下載
 | 模型 | 放置路徑 | 下載方式 |
 |------|----------|----------|
-| 球場關鍵點 | `main/model/keypoints.pth` | [Google Drive](https://drive.google.com/file/d/1MTtgjH7V-WCOIt9S8zdjjNWtXHOIscv0/view?usp=drive_link) |
 | YOLO11 Pose Large | `main/smart-tennis/backend/yolo11l-pose.pt` | Ultralytics 自動下載或手動放置 |
 | MediaPipe 手部 | `main/smart-tennis/backend/hand_landmarker.task` | MediaPipe 自動下載 |
 
