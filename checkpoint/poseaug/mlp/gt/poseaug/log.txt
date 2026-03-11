@@ -1,0 +1,109 @@
+Namespace(actions='*', ba_range_m=0.205, ba_range_w=0.165, batch_size=1024, blr_limit=0.1, blr_tanhlimit=0.2, checkpoint='./checkpoint/poseaug/mlp/gt/poseaug', dataset='h36m', decay_epoch=0, df=2, downsample=1, dropout=0.25, epochs=50, evaluate='', gloss_factorblr=1, gloss_factord2d=1, gloss_factord3d=6, gloss_factordiff=3, gloss_factordiv_ba=0.0, gloss_factordiv_rt=0.0, gloss_factorfeedback_ba=0.1, gloss_factorfeedback_rt=0.01, hardratio_ba=5, hardratio_ba_s=3, hardratio_rt=17, hardratio_rt_s=17, hardratio_std_ba=2, hardratio_std_rt=15, keypoints='gt', lr_d=0.0001, lr_g=0.0001, lr_p=0.0001, max_norm=True, note='poseaug', num_workers=2, posenet_name='mlp', pretrain=True, random_seed=0, resume='', s1only=False, snapshot=2, stages=2, warmup=2)
+LinearModel(
+  (w1): Linear(in_features=32, out_features=1024, bias=True)
+  (batch_norm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (linear_stages): ModuleList(
+    (0): Linear(
+      (relu): ReLU(inplace)
+      (dropout): Dropout(p=0.25)
+      (w1): Linear(in_features=1024, out_features=1024, bias=True)
+      (batch_norm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (w2): Linear(in_features=1024, out_features=1024, bias=True)
+      (batch_norm2): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): Linear(
+      (relu): ReLU(inplace)
+      (dropout): Dropout(p=0.25)
+      (w1): Linear(in_features=1024, out_features=1024, bias=True)
+      (batch_norm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (w2): Linear(in_features=1024, out_features=1024, bias=True)
+      (batch_norm2): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (w2): Linear(in_features=1024, out_features=45, bias=True)
+  (relu): ReLU(inplace)
+  (dropout): Dropout(p=0.25)
+)
+epoch	lr	error_h36m_p1	error_h36m_p2	error_3dhp_p1	error_3dhp_p2	
+1.000000	0.000100	41.410263	31.804835	83.097164	62.321725	
+==> Saving checkpoint at epoch '1', with dhp_p1 83.09716408002006
+==> Saving checkpoint at epoch '1', with s911p1 41.41026289563212
+2.000000	0.000098	41.410263	31.804835	83.097164	62.321725	
+3.000000	0.000096	40.611497	31.194988	79.846306	60.098850	
+==> Saving checkpoint at epoch '3', with dhp_p1 79.84630571479234
+==> Saving checkpoint at epoch '3', with s911p1 40.611497043559325
+4.000000	0.000094	41.139011	31.275344	79.202191	59.118853	
+==> Saving checkpoint at epoch '4', with dhp_p1 79.20219066221179
+5.000000	0.000092	40.691955	31.025473	79.271189	58.939885	
+6.000000	0.000090	40.874312	31.170094	77.983759	58.315853	
+==> Saving checkpoint at epoch '6', with dhp_p1 77.98375865681744
+7.000000	0.000088	40.618214	31.085152	78.714113	58.714643	
+8.000000	0.000086	40.671116	31.254141	78.490520	58.753086	
+9.000000	0.000084	40.343381	31.090799	78.096911	58.657650	
+==> Saving checkpoint at epoch '9', with s911p1 40.34338070788289
+10.000000	0.000082	40.229098	30.984315	77.718732	58.128070	
+==> Saving checkpoint at epoch '10', with dhp_p1 77.71873229160045
+==> Saving checkpoint at epoch '10', with s911p1 40.22909760591001
+11.000000	0.000080	39.962500	30.841148	76.755149	57.559815	
+==> Saving checkpoint at epoch '11', with dhp_p1 76.75514947883747
+==> Saving checkpoint at epoch '11', with s911p1 39.96249966560546
+12.000000	0.000078	39.969250	30.711503	76.890867	57.620631	
+13.000000	0.000076	39.902033	30.643573	76.107652	57.576092	
+==> Saving checkpoint at epoch '13', with dhp_p1 76.10765209923265
+==> Saving checkpoint at epoch '13', with s911p1 39.90203338517535
+14.000000	0.000075	40.067177	30.750990	76.268276	57.616660	
+15.000000	0.000073	39.825219	30.621757	75.955160	57.124539	
+==> Saving checkpoint at epoch '15', with dhp_p1 75.95515966710478
+==> Saving checkpoint at epoch '15', with s911p1 39.825218646933855
+16.000000	0.000071	39.708091	30.571343	76.207730	57.282583	
+==> Saving checkpoint at epoch '16', with s911p1 39.708091311542674
+17.000000	0.000069	39.497504	30.374728	75.689890	56.490294	
+==> Saving checkpoint at epoch '17', with dhp_p1 75.68988968392776
+==> Saving checkpoint at epoch '17', with s911p1 39.497504162017506
+18.000000	0.000067	39.493027	30.355429	75.895807	56.553509	
+==> Saving checkpoint at epoch '18', with s911p1 39.49302683347084
+19.000000	0.000065	39.668135	30.422367	76.188524	56.693788	
+20.000000	0.000063	39.561264	30.452228	76.318234	56.733219	
+21.000000	0.000061	39.265196	30.313086	76.454267	56.869372	
+==> Saving checkpoint at epoch '21', with s911p1 39.265196152491505
+22.000000	0.000059	39.244856	30.322374	76.223103	56.978385	
+==> Saving checkpoint at epoch '22', with s911p1 39.244855654881526
+23.000000	0.000057	39.531742	30.491977	76.685924	57.116243	
+24.000000	0.000055	39.269097	30.349739	77.056900	57.552229	
+25.000000	0.000053	38.897213	30.274015	77.040411	57.442991	
+==> Saving checkpoint at epoch '25', with s911p1 38.89721297244343
+26.000000	0.000051	38.992791	30.282077	77.406235	57.863404	
+27.000000	0.000049	39.171661	30.290809	76.948729	57.425070	
+28.000000	0.000047	39.029693	30.269427	76.897728	57.326895	
+29.000000	0.000045	39.059478	30.306290	76.883157	57.162590	
+30.000000	0.000043	38.856869	30.118223	76.281992	56.682375	
+==> Saving checkpoint at epoch '30', with s911p1 38.85686930319794
+31.000000	0.000041	38.686035	29.976511	76.099899	56.625091	
+==> Saving checkpoint at epoch '31', with s911p1 38.68603471800079
+32.000000	0.000039	38.990375	30.270334	76.196853	56.596940	
+33.000000	0.000037	38.661894	30.024111	76.814453	56.697784	
+==> Saving checkpoint at epoch '33', with s911p1 38.66189403211015
+34.000000	0.000035	38.716441	30.105636	76.883005	56.908250	
+35.000000	0.000033	38.690970	30.058572	75.377754	56.251616	
+==> Saving checkpoint at epoch '35', with dhp_p1 75.37775372748654
+36.000000	0.000031	38.439959	29.990224	75.990774	56.311510	
+==> Saving checkpoint at epoch '36', with s911p1 38.439959321321226
+37.000000	0.000029	38.637685	29.947116	75.373420	56.024940	
+==> Saving checkpoint at epoch '37', with dhp_p1 75.37342024698076
+38.000000	0.000027	38.600265	29.964074	75.861280	56.104647	
+39.000000	0.000025	38.787617	30.024879	74.987647	55.617868	
+==> Saving checkpoint at epoch '39', with dhp_p1 74.98764704573313
+40.000000	0.000024	38.693837	30.028270	75.572922	55.800753	
+41.000000	0.000022	38.986621	30.182181	75.305003	55.676760	
+42.000000	0.000020	39.081013	30.156238	75.035211	55.528913	
+43.000000	0.000018	39.303002	30.260542	74.595929	55.403188	
+==> Saving checkpoint at epoch '43', with dhp_p1 74.59592931646664
+44.000000	0.000016	38.946278	30.152636	74.286414	54.952041	
+==> Saving checkpoint at epoch '44', with dhp_p1 74.28641416089206
+45.000000	0.000014	39.106342	30.305812	73.753646	54.919918	
+==> Saving checkpoint at epoch '45', with dhp_p1 73.75364567984
+46.000000	0.000012	38.868564	30.279628	74.012889	54.819134	
+47.000000	0.000010	39.214215	30.364456	73.962721	54.798843	
+48.000000	0.000008	39.584387	30.621857	74.023049	54.599687	
+49.000000	0.000006	39.303434	30.467393	73.805467	54.528136	
+50.000000	0.000004	39.300026	30.567603	74.130348	54.668261	
